@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Kyiv Cake | Авторські торти та десерти в Києві</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#FFF6F8',
+                            pink: '#FCE7F3',
+                            accent: '#F472B6',
+                            rose: '#DB2777',
+                            dark: '#831843',
+                            cream: '#FEFDFB',
+                            darktext: '#374151'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px -8px rgba(219, 39, 119, 0.18);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #FFF1F5;
+            border-radius: 999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #F472B6;
+            border-radius: 999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #DB2777;
+        }
+        .pill-btn {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+        .pill-btn.active {
+            background-color: #DB2777 !important;
+            color: #ffffff !important;
+            border-color: #DB2777 !important;
+            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.35);
+        }
+        .input-error {
+            border-color: #EF4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-darktext font-sans antialiased min-h-screen flex flex-col selection:bg-pink-200 selection:text-brand-dark">
+
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-2 group">
+                    <span class="text-3xl transform group-hover:rotate-12 transition-transform duration-300">🎂</span>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark">Happy.Kyiv.Cake</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#info" class="text-gray-600 hover:text-brand-rose transition-colors">Умови</a>
+                    <a href="#menu" class="text-brand-rose font-bold hover:text-brand-dark transition-colors flex items-center gap-1">
+                        <span>🍰</span> Меню
+                    </a>
+                    <a href="#menu-cakes" class="text-gray-600 hover:text-brand-rose transition-colors">Торти 1.5+ кг</a>
+                    <a href="#menu-bento" class="text-gray-600 hover:text-brand-rose transition-colors">Бенто & Мус</a>
+                    <a href="#menu-macarons" class="text-gray-600 hover:text-brand-rose transition-colors">Макаронс</a>
+                    <a href="#menu-desserts" class="text-gray-600 hover:text-brand-rose transition-colors">Десерти</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <a href="#menu" class="md:hidden px-3.5 py-2 rounded-full bg-pink-50 text-brand-rose font-bold text-xs border border-pink-200 hover:bg-pink-100 transition-colors">
+                        Меню 🍰
+                    </a>
+                    <a href="https://www.instagram.com/happy.kyiv.cake" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-brand-rose hover:text-brand-dark bg-pink-50 hover:bg-pink-100 px-3.5 py-2 rounded-full border border-pink-200 transition-colors">
+                        <span>📸</span> Instagram
+                    </a>
+                    <button onclick="handleHeroOrderClick()" class="bg-gradient-to-r from-brand-accent to-brand-rose text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-md shadow-pink-300/40 hover:shadow-lg hover:shadow-pink-400/50 hover:brightness-105 transition-all cursor-pointer">
+                        Замовити
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden pt-14 pb-16 lg:pt-20 lg:pb-24 bg-gradient-to-b from-brand-light via-white to-brand-cream">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-24 w-96 h-96 bg-rose-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span class="inline-block py-1 px-4 rounded-full bg-pink-100 text-brand-dark text-xs sm:text-sm font-semibold tracking-wider uppercase mb-5 border border-pink-200">
+                    Кондитерська майстерня в Києві
+                </span>
+                
+                <h1 class="font-serif text-4xl sm:text-6xl font-bold text-gray-900 leading-[1.18] mb-6">
+                    Створюємо свято <br/>
+                    <span class="italic text-brand-rose">на смак та вигляд</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+                    Авторські бісквітні та мусові торти, стильні бенто-бокси, свіжі макаронс та капкейки. 
+                    Тільки натуральне вершкове масло 82.5%, якісний бельгійський шоколад та свіжі ягоди.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button id="heroOrderBtn" onclick="handleHeroOrderClick()" class="w-full sm:w-auto px-9 py-4 rounded-full bg-brand-rose hover:bg-brand-dark text-white font-semibold text-lg shadow-xl shadow-pink-500/25 hover:shadow-pink-500/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                        <span>✨</span> Замовити десерт
+                    </button>
+                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-pink-50 text-gray-800 font-semibold text-lg border border-pink-200 shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
+                        <span>📋</span> Переглянути меню
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="py-16 bg-white border-y border-pink-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Важлива інформація</h2>
+                    <p class="text-gray-500 text-sm sm:text-base">Будь ласка, ознайомтесь з умовами перед оформленням замовлення</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Картка 1: Терміни -->
+                    <div class="bg-brand-light rounded-3xl p-7 sm:p-8 border border-pink-100 flex flex-col card-hover">
+                        <div class="w-12 h-12 rounded-2xl bg-white text-brand-rose flex items-center justify-center text-2xl shadow-sm mb-5">
+                            🗓️
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Терміни та декор</h3>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span>Замовлення приймаємо за <b>3-5 днів</b> до свята. Термінові замовлення — по можливості.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span>Торти <b>від 1200 грн/кг</b>, мінімальне замовлення <b>від 1,5 кг</b>. Двоярусні торти — від 4 кг.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span>Складний декор, живі квіти, топери та цукровий фотодрук рахуються окремо.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Картка 2: Оплата -->
+                    <div class="bg-brand-light rounded-3xl p-7 sm:p-8 border border-pink-100 flex flex-col card-hover">
+                        <div class="w-12 h-12 rounded-2xl bg-white text-brand-rose flex items-center justify-center text-2xl shadow-sm mb-5">
+                            💳
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Оплата та бронювання</h3>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span><b>Обов'язкова передоплата 50%</b> для бронювання вашої дати у виробничому графіку.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span>Ви можете обрати сплату 50% або 100% прямо на сайті — сума прораховується автоматично.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span>Решта суми сплачується при отриманні десерту кур'єром або на самовивозі.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Картка 3: Самовивіз -->
+                    <div class="bg-brand-light rounded-3xl p-7 sm:p-8 border border-pink-100 flex flex-col card-hover">
+                        <div class="w-12 h-12 rounded-2xl bg-white text-brand-rose flex items-center justify-center text-2xl shadow-sm mb-5">
+                            📍
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Самовивіз та зв'язок</h3>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span><b>Адреса видачі:</b> вул. Урлівська 34А чи Анни Ахматової 35А (біля вивіски «Олімп» та салону краси).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-rose font-bold">•</span>
+                                <span>Просимо приходити точно в домовлений час!</span>
+                            </li>
+                            <li class="mt-2 p-3 bg-pink-100/70 rounded-xl text-xs text-brand-dark font-medium border border-pink-200">
+                                ⚠️ У разі перебоїв зв'язку — пишіть в Instagram дірект або телефонуйте через Telegram!
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Instagram Direct Banner Directly Under Info -->
+                <div class="mt-12 p-6 sm:p-8 bg-gradient-to-r from-pink-50 via-brand-light to-pink-100 rounded-3xl border-2 border-pink-200 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4 text-left">
+                        <div class="w-16 h-16 rounded-2xl bg-white text-brand-rose flex items-center justify-center text-3xl shadow-sm shrink-0 border border-pink-100">
+                            📸
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-rose block mb-1">Особиста консультація кондитера</span>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-gray-900">Маєте запитання або хочете обговорити деталі?</h3>
+                            <p class="text-sm text-gray-600 mt-1 max-w-xl">
+                                Якщо вам потрібен нестандартний ярусний торт, індивідуальний складний малюнок або є питання щодо начинок — пишіть нам напряму в Instagram дірект!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.instagram.com/happy.kyiv.cake" target="_blank" rel="noopener noreferrer" class="shrink-0 w-full md:w-auto px-7 py-3.5 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold text-sm rounded-full shadow-lg shadow-pink-500/25 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                        <span>Написати в Instagram</span> ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div id="menu" class="scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4 text-center">
+                <span class="text-xs uppercase font-bold text-brand-rose tracking-widest block mb-2">Каталог кондитерської</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-dark mb-4">Наш Асортимент</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
+                    Обирайте готові смаки з детальним описом нижче, або натисніть «Замовити» на будь-якій позиції для швидкого оформлення
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+                    <a href="#menu-cakes" class="px-4 py-2 rounded-full bg-white border border-pink-200 text-xs font-bold text-gray-700 hover:bg-brand-rose hover:text-white transition-all shadow-sm">
+                        🎂 Торти від 1.5 кг
+                    </a>
+                    <a href="#menu-bento" class="px-4 py-2 rounded-full bg-white border border-pink-200 text-xs font-bold text-gray-700 hover:bg-brand-rose hover:text-white transition-all shadow-sm">
+                        🧁 Бенто & Мусові
+                    </a>
+                    <a href="#menu-macarons" class="px-4 py-2 rounded-full bg-white border border-pink-200 text-xs font-bold text-gray-700 hover:bg-brand-rose hover:text-white transition-all shadow-sm">
+                        🌸 Макаронс & Куб
+                    </a>
+                    <a href="#menu-desserts" class="px-4 py-2 rounded-full bg-white border border-pink-200 text-xs font-bold text-gray-700 hover:bg-brand-rose hover:text-white transition-all shadow-sm">
+                        🍫 Тістечка & Капкейки
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section id="menu-cakes" class="py-12 bg-brand-cream scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs uppercase font-bold text-brand-rose tracking-widest block mb-1">Велика класика</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Торти від 1,5 кг</h3>
+                    <p class="text-gray-500 mt-1 text-sm">Кожен торт створюється за авторською рецептурою. Декор рахується окремо.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+                    
+                    <!-- 1. Наполеон -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=650&q=80" alt="Торт Наполеон" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Наполеон'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Наполеон</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Хрусткі листкові коржі, заварний крем англез на білому шоколаді. На наступний день стає ще ніжнішим та тане в роті.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Наполеон', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Медівник класичний -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&w=650&q=80" alt="Медівник класичний" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Медівник'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Медівник класичний</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Медові ароматні коржі з ніжним кремом із фермерської сметани та вершкового крем-чізу.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Медівник класичний', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Медівник з начинкою -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=650&q=80" alt="Медівник з начинкою" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Медівник+з+начинкою'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Медівник з начинкою на вибір</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Медові коржі, крем зі сметани та крем-чізу, у прошарку ягідне конфі смородини чи конфі груші з сиром дор-блю.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Медівник з начинкою на вибір', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Фісташка-малина -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=650&q=80" alt="Торт Фісташка-малина" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Фісташка-малина'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Фісташка-малина</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Фісташковий бісквіт, малиновий конфітюр, ніжний фісташковий ганаш та легкий крем-чіз на вершках з фісташковою пастою.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Фісташка-малина', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Тропік -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=650&q=80" alt="Торт Тропік" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Тропік'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Тропік</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Ванільний бісквіт, манговий крем, яскрава соковита маракуя та шматочки солодкого стиглого персику.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Тропік', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Фереро -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=650&q=80" alt="Торт Фереро" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Фереро'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Фереро</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Шоколадний вологий бісквіт, оксамитовий шоколадний крем, насичений ганаш із щедрим смаженим фундуком.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Фереро', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Чорний ліс -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=650&q=80" alt="Торт Чорний ліс" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Чорний+ліс'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Чорний ліс</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Шоколадний бісквіт, легкий вершковий крем-чіз на вершках та цільні соковиті вишні з тонкою кислинкою.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Чорний ліс', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Маківка вишнева -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&w=650&q=80" alt="Маківка вишнева" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Маківка+вишнева'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Маківка вишнева</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Ванільний маковий бісквіт, повітряний крем-чіз на вершках та стигла вишня у прошарку.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Маківка вишнева', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. Орео -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=650&q=80" alt="Торт Орео" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Орео'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Орео</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Шоколадний бісквіт, ніжний крем-чіз та танучий мусовий прошарок зі шматочками печива Орео.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Орео', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. Червоний оксамит -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=650&q=80" alt="Торт Червоний оксамит" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Червоний+оксамит'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Червоний оксамит</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Соковитий червоний бісквіт з благородним присмаком какао, прошарований крем-чізом на натуральних вершках.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Червоний оксамит', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. Снікерс -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=650&q=80" alt="Торт Снікерс" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Снікерс'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Снікерс</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Шоколадний бісквіт, крем-чіз на вершках, домашня солона карамель та хрусткий обсмажений арахіс.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Снікерс', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. Чорниця-лайм -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=650&q=80" alt="Чорниця-лайм" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Чорниця-лайм'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1300 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Чорниця-лайм</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Ванільний бісквіт, крем-чіз на вершках, освіжаючий лаймовий ганаш та ароматне чорничне конфі.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Чорниця-лайм', 1300, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13. Ягідний -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=650&q=80" alt="Торт Ягідний" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Ягідний'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Ягідний</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Ванільний бісквіт зі щедрою соковитою ягідною начинкою та легким крем-чізом на свіжих вершках.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Ягідний', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14. Полуничний пломбір -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=650&q=80" alt="Полуничний пломбір" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Полуничний+пломбір'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Полуничний пломбір</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Ванільний бісквіт, що нагадує морозиво пломбір, ніжний крем-чіз та літнє полуничне конфі.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Полуничний пломбір', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 15. Яскрава карамель -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-60 w-full overflow-hidden bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=650&q=80" alt="Яскрава карамель" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Яскрава+карамель'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-sm">1200 грн/кг</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Яскрава карамель</h3>
+                            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Шоколадний бісквіт, крем-чіз на вершках, насичена карамель та освіжаюча кислинка смородини.</p>
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-xs text-gray-400 font-medium">мін. від 1,5 кг</span>
+                                <button onclick="openSpecificCakeModal('Торт Яскрава карамель', 1200, 1.5, 0.5)" class="px-5 py-2.5 rounded-full bg-brand-light text-brand-dark hover:bg-brand-rose hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer">
+                                    Замовити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-bento" class="py-16 bg-white border-t border-pink-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs uppercase font-bold text-brand-rose tracking-widest block mb-1">Для затишних свят</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Бенто та Мусові торти</h3>
+                    <p class="text-gray-500 mt-1 text-sm">Компактні формати десертів. У вартість бенто входить стильне пакування, свічка та напис</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                    <!-- Bento Card -->
+                    <div class="bg-brand-light rounded-3xl p-7 lg:p-9 border border-pink-100 flex flex-col shadow-sm card-hover">
+                        <div class="relative h-64 w-full rounded-2xl overflow-hidden mb-6 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=80" alt="Бенто торт" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Бенто+торт'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-rose font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">Свічка + ложечка + пакування</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-gray-900 mb-2">Бенто-торти (Бісквітні та Мусові)</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Індивідуальні міні-торти. Доступні смаки: Шоколад-вишня, Чорниця-лайм, Фундук-шоколад, Бейліс, Снікерс, Медівник, Червоний оксамит, Карамель.</p>
+                        
+                        <div class="space-y-3 mt-auto">
+                            <div class="flex items-center justify-between p-4 bg-white rounded-2xl border border-pink-100">
+                                <div>
+                                    <span class="font-bold text-gray-900 block text-base">Бенто 0,5 кг</span>
+                                    <span class="text-xs text-gray-400">Діаметр ~10-11 см</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-brand-rose font-bold text-lg">від 800 грн</span>
+                                    <button onclick="openCustomOrderModal('Бенто торт 0,5 кг', 800, 'шт', 1, 1, 'bento')" class="px-4 py-2 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">Замовити</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-white rounded-2xl border border-pink-100">
+                                <div>
+                                    <span class="font-bold text-gray-900 block text-base">Бенто Maxi 1 кг</span>
+                                    <span class="text-xs text-gray-400">Діаметр ~14-15 см</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-brand-rose font-bold text-lg">від 1300 грн</span>
+                                    <button onclick="openCustomOrderModal('Бенто Maxi 1 кг', 1300, 'шт', 1, 1, 'bento')" class="px-4 py-2 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">Замовити</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mousse Cakes Card -->
+                    <div class="bg-brand-light rounded-3xl p-7 lg:p-9 border border-pink-100 flex flex-col shadow-sm card-hover">
+                        <div class="relative h-64 w-full rounded-2xl overflow-hidden mb-6 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80" alt="Мусовий торт Серце" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Мусовий+торт'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">Дзеркальна глазур / Велюр</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-gray-900 mb-2">Мусові торти (Серця & Форми)</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Неймовірно легка мусова основа на свіжих вершках та бельгійському шоколаді. Покриття дзеркальною глазур'ю або оксамитовим велюром на вибір.</p>
+                        
+                        <div class="space-y-3 mt-auto">
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-pink-100">
+                                <div>
+                                    <span class="font-bold text-gray-900 text-sm block">Мусове Серце (0,400 кг)</span>
+                                    <span class="text-xs text-gray-400">Романтичний формат</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-brand-rose font-bold">700 грн</span>
+                                    <button onclick="openCustomOrderModal('Мусове Серце 0.4 кг', 700, 'шт', 1, 1, 'mousse')" class="px-4 py-2 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">Замовити</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-pink-100">
+                                <div>
+                                    <span class="font-bold text-gray-900 text-sm block">Мусовий торт (0,7 кг - 1 кг)</span>
+                                    <span class="text-xs text-gray-400">Форма коло або серце</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-brand-rose font-bold">від 1000 грн</span>
+                                    <button onclick="openCustomOrderModal('Мусовий торт 0.7-1 кг', 1000, 'шт', 1, 1, 'mousse')" class="px-4 py-2 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">Замовити</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-pink-100">
+                                <div>
+                                    <span class="font-bold text-gray-900 text-sm block">Мусовий «Плетіння» (1,1 кг)</span>
+                                    <span class="text-xs text-gray-400">Ексклюзивна дизайнерська форма</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-brand-rose font-bold">1500 грн</span>
+                                    <button onclick="openCustomOrderModal('Мусовий торт Плетіння 1.1 кг', 1500, 'шт', 1, 1, 'mousse')" class="px-4 py-2 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">Замовити</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-macarons" class="py-16 bg-brand-cream border-t border-pink-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs uppercase font-bold text-brand-rose tracking-widest block mb-1">Французька витонченість</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Макаронс & Торт КУБ</h3>
+                    <p class="text-gray-500 mt-1 text-sm">Хрустка мигдалева кришечка та ніжний ганаш із 10 унікальними смаками</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Macarons Box -->
+                    <div class="bg-white rounded-3xl p-7 lg:p-9 border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-64 w-full rounded-2xl overflow-hidden mb-6 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=750&q=80" alt="Коробка Макаронс" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Макаронс+набір'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">85 грн / шт (від 4 шт)</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-gray-900 mb-2">Макаронс (набори від 4 шт)</h4>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Обирайте улюблені смаки з нашої авторської палітри:
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Манго-маракуйя</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Дубайський шоколад</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Груша-дорблю</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Малина-пармезан</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Фісташка-малина</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Шоколад-фундук</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Нутелла</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Полуничний мілкшейк</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Бабл гам</span>
+                            <span class="px-2.5 py-1 bg-pink-50 text-pink-700 text-xs rounded-lg font-medium">Раффаелло</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs text-gray-400 font-medium">У гарній подарунковій коробці</span>
+                            <button onclick="openCustomOrderModal('Макаронс від 4 шт', 85, 'шт', 4, 1, 'macarons')" class="px-6 py-3 rounded-full bg-brand-rose hover:bg-brand-dark text-white font-semibold text-sm transition-colors shadow-md shadow-pink-300/30 cursor-pointer">
+                                Скласти набір
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cake CUBE -->
+                    <div class="bg-white rounded-3xl p-7 lg:p-9 border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-64 w-full rounded-2xl overflow-hidden mb-6 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=750&q=80" alt="Торт Куб з макарон" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Торт+Куб+з+макарон'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">Свічки входять у вартість</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-gray-900 mb-2">Торт «КУБ» з макаронс</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Неймовірно фотогенічний торт у формі куба з макаронів. У вартість входять свічки та тістечка. Топери, шоколадні фігурки та живі квіти рахуються окремо.
+                        </p>
+
+                        <div class="space-y-3 mt-auto">
+                            <div class="flex items-center justify-between p-3.5 bg-brand-light rounded-2xl border border-pink-100">
+                                <span class="font-bold text-gray-800 text-sm">Куб на 12 шт</span>
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-brand-rose">1150 грн</span>
+                                    <button onclick="openCustomOrderModal('Торт КУБ 12 шт', 1150, 'шт', 1, 1, 'macarons')" class="px-4 py-1.5 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors cursor-pointer">Обрати</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3.5 bg-brand-light rounded-2xl border border-pink-100">
+                                <span class="font-bold text-gray-800 text-sm">Куб на 18 шт</span>
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-brand-rose">1600 грн</span>
+                                    <button onclick="openCustomOrderModal('Торт КУБ 18 шт', 1600, 'шт', 1, 1, 'macarons')" class="px-4 py-1.5 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors cursor-pointer">Обрати</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3.5 bg-brand-light rounded-2xl border border-pink-100">
+                                <span class="font-bold text-gray-800 text-sm">Куб на 24 шт</span>
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-brand-rose">2100 грн</span>
+                                    <button onclick="openCustomOrderModal('Торт КУБ 24 шт', 2100, 'шт', 1, 1, 'macarons')" class="px-4 py-1.5 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors cursor-pointer">Обрати</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-desserts" class="py-16 bg-white border-t border-pink-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs uppercase font-bold text-brand-rose tracking-widest block mb-1">Солодкі перекуси</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Порційні десерти</h3>
+                    <p class="text-gray-500 mt-1 text-sm">Чудове доповнення до кенді-бару або для частування колег та близьких</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Тістечка Картопля (Справжні шоколадні тістечка без котиків!) -->
+                    <div class="bg-brand-light rounded-3xl p-6 border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-56 w-full rounded-2xl overflow-hidden mb-5 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=650&q=80" alt="Тістечка Картопля" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Тістечка+Картопля'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">300 грн / коробка</span>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-gray-900 mb-2">Тістечка «Картопля»</h4>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            Улюблена класика у новому сучасному виконанні. Набір з 6 шт вагою ~0,350 - 0,400 кг. Насичена шоколадна текстура та святковий декор.
+                        </p>
+                        <div class="pt-4 border-t border-pink-200/50 flex items-center justify-between">
+                            <span class="text-xs text-gray-500 font-medium">6 шт у наборі</span>
+                            <button onclick="openSpecificCakeModal('Тістечка Картопля (набір 6 шт)', 300, 1, 1, 'шт')" class="px-5 py-2.5 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">
+                                Замовити
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Trifles in Cups -->
+                    <div class="bg-brand-light rounded-3xl p-6 border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-56 w-full rounded-2xl overflow-hidden mb-5 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=650&q=80" alt="Трайфли в стаканчиках" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Трайфли'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">200 грн / шт</span>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-gray-900 mb-2">Трайфли (десерти в стакані)</h4>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            Порційний торт у прозорому стаканчику з шарами бісквіту, ніжного крем-чізу та ягідного прошарку. Доступні всі смаки для тортів бенто. Замовлення від 4 шт.
+                        </p>
+                        <div class="pt-4 border-t border-pink-200/50 flex items-center justify-between">
+                            <span class="text-xs text-gray-500 font-medium">від 4 шт</span>
+                            <button onclick="openCustomOrderModal('Трайфли (від 4 шт)', 200, 'шт', 4, 1, 'bento')" class="px-5 py-2.5 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">
+                                Замовити
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cupcakes with Swirl -->
+                    <div class="bg-brand-light rounded-3xl p-6 border border-pink-100 shadow-sm flex flex-col card-hover">
+                        <div class="relative h-56 w-full rounded-2xl overflow-hidden mb-5 bg-pink-50">
+                            <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=650&q=80" alt="Капкейки" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/FFF0F5/DB2777?text=Капкейки'">
+                            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">150 грн / шт</span>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-gray-900 mb-2">Капкейки</h4>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            Ніжні кекси з вершковою шапочкою. Смаки: Ванільні з полуничним конфі, Шоколадні з карамеллю та арахісом, Вишня-шоколад. Замовлення від 4 шт.
+                        </p>
+                        <div class="pt-4 border-t border-pink-200/50 flex items-center justify-between">
+                            <span class="text-xs text-gray-500 font-medium">від 4 шт</span>
+                            <button onclick="openCustomOrderModal('Капкейки (від 4 шт)', 150, 'шт', 4, 1, 'cupcakes')" class="px-5 py-2.5 bg-brand-rose text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors shadow-sm cursor-pointer">
+                                Замовити
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-pink-100 py-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <span class="text-3xl mb-3">🧁</span>
+            <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Happy.Kyiv.Cake</h3>
+            <p class="text-gray-500 text-sm max-w-sm mb-6">Печемо з теплом та любов'ю у Києві для ваших особливих свят ✨</p>
+            
+            <div class="flex items-center gap-4 text-xs text-gray-400">
+                <span>Київ, вул. Урлівська / Анни Ахматової</span>
+                <span>•</span>
+                <span>© Happy Kyiv Cake</span>
+            </div>
+
+            <!-- Discrete Owner Login Button -->
+            <button onclick="openPasswordModal()" class="mt-8 text-[11px] text-gray-300 hover:text-brand-rose transition-colors py-1 px-3 rounded-full tracking-wider uppercase cursor-pointer">
+                Панель кондитера (Вхід для власника)
+            </button>
+        </div>
+    </footer>
+
+    <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto">
+        <div id="orderModalCard" class="bg-white rounded-3xl w-full max-w-2xl mx-auto shadow-2xl overflow-hidden flex flex-col max-h-[94vh] my-auto">
+            
+            <!-- Modal Header -->
+            <div class="p-5 sm:p-6 border-b border-gray-100 flex items-center justify-between bg-brand-light/50 shrink-0">
+                <div>
+                    <h3 id="modalHeading" class="font-serif text-2xl font-bold text-gray-900">Оформлення замовлення</h3>
+                    <p id="modalSubheading" class="text-xs sm:text-sm text-brand-rose font-medium mt-0.5">Базова ціна: <span id="dispPrice">1200</span> грн / <span id="dispUnit">кг</span></p>
+                </div>
+                <button type="button" onclick="closeOrderModal()" class="w-9 h-9 rounded-full bg-white border border-gray-200 text-gray-400 hover:text-gray-700 flex items-center justify-center transition-colors cursor-pointer">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-5 sm:p-6 overflow-y-auto custom-scrollbar flex-grow space-y-6">
+                
+                <!-- Category Picker (Hero Mode) -->
+                <div id="categoryPickerBlock" class="hidden">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-2">1. Оберіть вид десерту *</label>
+                    <div id="categoryPills" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <!-- Specific Cake Selected Badge -->
+                <div id="specificCakeBadge" class="hidden p-4 rounded-2xl bg-pink-50 border border-pink-200 flex items-center gap-3">
+                    <span class="text-3xl">🍰</span>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase text-brand-rose tracking-wider block">Обраний десерт і смак:</span>
+                        <span id="specificCakeName" class="font-serif text-lg font-bold text-gray-900">Торт Наполеон</span>
+                    </div>
+                </div>
+
+                <!-- Flavors Picker (When multiple choices apply) -->
+                <div id="flavorsPickerBlock" class="hidden">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark">
+                            Оберіть смак десерту <span class="text-red-500">* (обов'язково)</span>:
+                        </label>
+                        <span id="flavorNoticeCount" class="text-[11px] text-brand-rose font-semibold">Обрано: 0</span>
+                    </div>
+                    <div id="flavorsPillsContainer" class="flex flex-wrap gap-2 p-3.5 bg-gray-50 rounded-2xl border border-gray-200 max-h-44 overflow-y-auto custom-scrollbar transition-all"></div>
+                    <p id="flavorErrorText" class="text-xs text-red-500 font-semibold mt-1 hidden">⚠️ Будь ласка, оберіть хоча б один смак десерту!</p>
+                </div>
+
+                <!-- Weight and Quantity with Price Calculator -->
+                <div class="bg-brand-light p-5 rounded-2xl border border-pink-100">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <span class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-2">Вага / Кількість *</span>
+                            <div class="flex items-center gap-3">
+                                <div class="flex items-center bg-white border border-pink-200 rounded-xl overflow-hidden shadow-sm">
+                                    <button type="button" onclick="adjustQuantity(-1)" class="w-11 py-2 text-lg font-bold text-brand-dark hover:bg-pink-50 transition-colors select-none cursor-pointer">−</button>
+                                    <input type="number" id="qtyInput" class="w-16 py-2 text-center font-bold text-gray-900 text-base bg-transparent border-none outline-none" min="1" step="0.5" value="1.5">
+                                    <button type="button" onclick="adjustQuantity(1)" class="w-11 py-2 text-lg font-bold text-brand-dark hover:bg-pink-50 transition-colors select-none cursor-pointer">+</button>
+                                </div>
+                                <span id="currentUnitText" class="font-bold text-gray-700 text-base">кг</span>
+                            </div>
+                            <span id="minNoticeText" class="text-[11px] text-gray-400 mt-1 block">Мін: 1,5 кг</span>
+                        </div>
+
+                        <!-- Price calculation card with 50% prepay rule -->
+                        <div class="bg-white p-4 rounded-xl border border-pink-200 sm:min-w-[240px]">
+                            <div class="flex justify-between items-center text-xs text-gray-500 mb-1">
+                                <span>Загальна сума:</span>
+                                <span class="font-bold text-gray-900 text-sm"><span id="sumTotal">0</span> грн</span>
+                            </div>
+                            
+                            <div class="my-2.5">
+                                <span class="block text-[10px] uppercase font-bold text-brand-rose tracking-wider mb-1">Обов'язкова передоплата 50%</span>
+                                <div class="grid grid-cols-2 gap-1.5 p-1 bg-gray-100 rounded-lg">
+                                    <button type="button" id="pay50Btn" onclick="selectPaymentType('50')" class="py-1 text-xs font-bold rounded-md bg-brand-rose text-white shadow-sm transition-all cursor-pointer">
+                                        50% (Передплата)
+                                    </button>
+                                    <button type="button" id="pay100Btn" onclick="selectPaymentType('100')" class="py-1 text-xs font-bold rounded-md text-gray-600 hover:text-gray-900 transition-all cursor-pointer">
+                                        100% (Повна)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pt-2 border-t border-gray-100">
+                                <span class="text-xs font-bold text-gray-800">До сплати зараз:</span>
+                                <span class="font-serif text-xl font-bold text-brand-rose"><span id="sumToPay">0</span> грн</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Details (All Mandatory) -->
+                <div class="space-y-4">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark">Дані клієнта <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <input type="text" id="custName" placeholder="Ім'я *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-pink-100 outline-none text-sm transition-all">
+                            <span id="nameErr" class="text-[11px] text-red-500 hidden mt-1 block">Введіть ваше ім'я</span>
+                        </div>
+                        <div>
+                            <input type="text" id="custSurname" placeholder="Прізвище *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-pink-100 outline-none text-sm transition-all">
+                            <span id="surnameErr" class="text-[11px] text-red-500 hidden mt-1 block">Введіть ваше прізвище</span>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="tel" id="custPhone" placeholder="Номер телефону (+380...) *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-pink-100 outline-none text-sm transition-all">
+                        <span id="phoneErr" class="text-[11px] text-red-500 hidden mt-1 block">Введіть номер телефону для зв'язку</span>
+                    </div>
+                </div>
+
+                <!-- Delivery Method Selection and DD.MM.YYYY Date -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark">Спосіб отримання <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-2 gap-2 p-1 bg-gray-100 rounded-xl">
+                        <button type="button" id="pickupOptBtn" onclick="setDeliveryMethod('pickup')" class="py-2.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-sm transition-all cursor-pointer">
+                            Самовивіз
+                        </button>
+                        <button type="button" id="deliveryOptBtn" onclick="setDeliveryMethod('delivery')" class="py-2.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer">
+                            Доставка кур'єром
+                        </button>
+                    </div>
+
+                    <div id="pickupNotice" class="p-3.5 bg-pink-50 rounded-xl border border-pink-100 text-xs text-brand-dark leading-relaxed">
+                        📍 <b>Точка видачі:</b> вул. Урлівська 34А чи Анни Ахматової 35А (біля вивіски «Олімп» та салону краси).
+                    </div>
+
+                    <div id="deliveryInputWrapper" class="hidden">
+                        <input type="text" id="deliveryAddressInput" placeholder="Введіть повну адресу доставки (вулиця, будинок, квартира) *" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-pink-100 outline-none text-sm">
+                        <span id="addressErr" class="text-[11px] text-red-500 hidden mt-1 block">Вкажіть адресу для доставки</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <div>
+                            <label class="block text-[11px] text-gray-500 mb-1">Бажана дата (ДД.ММ.РРРР) *</label>
+                            <input type="date" id="orderDateInput" required class="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-brand-rose outline-none text-sm" onchange="handleDateInputChange(this)">
+                            <!-- Dynamic DD.MM.YYYY preview badge -->
+                            <div id="dateDisplayFormatted" class="text-[11px] font-semibold text-brand-rose mt-1">Оберіть дату в календарі</div>
+                            <span id="dateErr" class="text-[11px] text-red-500 hidden mt-1 block">Оберіть дату</span>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-gray-500 mb-1">Бажаний час *</label>
+                            <input type="time" id="orderTimeInput" required class="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-brand-rose outline-none text-sm">
+                            <span id="timeErr" class="text-[11px] text-red-500 hidden mt-1 block">Оберіть час</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decor Photo & Comment with Compression and Preview -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark">Оформлення декору <span class="text-red-500">*</span></label>
+                    
+                    <div id="decorUploadCard" class="p-4 bg-gray-50 rounded-2xl border border-gray-200 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <label class="cursor-pointer px-4 py-2.5 rounded-xl border border-pink-300 bg-pink-50 hover:bg-pink-100 text-brand-dark text-xs font-bold flex items-center gap-2 transition-colors">
+                                <span>📷</span> Завантажити фото декору
+                                <input type="file" id="decorPhotoFile" accept="image/*" class="hidden" onchange="handleDecorPhotoSelect(this)">
+                            </label>
+                            <span id="decorFileName" class="text-xs text-gray-400 truncate max-w-[200px]">Файл не обрано</span>
+                        </div>
+
+                        <!-- Image Preview in Form -->
+                        <div id="decorPhotoPreviewBox" class="hidden relative inline-block mt-2">
+                            <img id="decorPreviewImg" class="w-24 h-24 object-cover rounded-xl border-2 border-brand-rose shadow-sm" alt="Прев'ю декору">
+                            <button type="button" onclick="removeSelectedPhoto()" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-600 shadow cursor-pointer">✕</button>
+                        </div>
+
+                        <div class="pt-2 border-t border-gray-200">
+                            <label class="flex items-center gap-2.5 cursor-pointer text-xs text-gray-700">
+                                <input type="checkbox" id="decorStandardCheckbox" onchange="handleStandardDecorToggle(this)" class="w-4 h-4 rounded text-brand-rose focus:ring-brand-rose border-gray-300">
+                                <span>Або: Декор на розсуд кондитера / як на фото в каталозі</span>
+                            </label>
+                        </div>
+                    </div>
+                    <span id="decorErr" class="text-[11px] text-red-500 hidden block">Будь ласка, завантажте фото або позначте декор як на фото</span>
+
+                    <textarea id="orderCommentInput" rows="2" placeholder="Текст напису на торті чи бенто, побажання щодо кольору або алергій..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose outline-none text-sm resize-none"></textarea>
+                </div>
+
+            </div>
+
+            <!-- Modal Action Button -->
+            <div class="p-5 border-t border-gray-100 bg-white shrink-0">
+                <button type="button" id="confirmOrderSubmitBtn" onclick="submitOrderForm()" class="w-full py-4 rounded-full bg-brand-rose hover:bg-brand-dark text-white font-bold text-base shadow-lg shadow-pink-400/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Оформити та перейти до оплати</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-auto shadow-2xl text-center space-y-5">
+            <div class="w-16 h-16 rounded-full bg-pink-50 text-brand-rose border-2 border-pink-200 flex items-center justify-center text-3xl mx-auto">
+                💳
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-gray-900">Замовлення сформовано!</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                Ваші дані зафіксовано. Для бронювання дати у графіку кондитерської внесіть обрану суму:
+            </p>
+            
+            <div class="p-4 bg-brand-light rounded-2xl border border-pink-100">
+                <span class="text-xs text-gray-500 uppercase tracking-wider block mb-1">Сума до сплати</span>
+                <span class="font-serif text-3xl font-bold text-brand-rose"><span id="payAmountDisplay">0</span> грн</span>
+            </div>
+
+            <button onclick="handleExecutePayment()" class="w-full py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Сплатити карткою онлайн (ФОП)</span> ↗
+            </button>
+
+            <p class="text-[11px] text-gray-400 leading-tight">
+                Оплата захищена банківським еквайрингом. Після платежу ви отримаєте підтвердження.
+            </p>
+
+            <button onclick="closePaymentModal()" class="text-xs text-gray-500 hover:text-gray-800 font-medium cursor-pointer">
+                Закрити вікно
+            </button>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-4">
+        <div class="bg-white rounded-3xl p-8 sm:p-10 max-w-lg w-full mx-auto shadow-2xl text-center space-y-6">
+            <div class="w-20 h-20 rounded-full bg-green-50 text-emerald-500 border-2 border-emerald-200 flex items-center justify-center text-4xl mx-auto shadow-sm">
+                ✓
+            </div>
+            
+            <div>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Дякуємо за замовлення!</h3>
+                <p class="text-base sm:text-lg text-brand-rose font-semibold">Ми звʼяжемося з вами в найближчий час ✨</p>
+            </div>
+
+            <div class="p-5 bg-brand-light rounded-2xl border border-pink-100 text-left space-y-2 text-xs sm:text-sm text-gray-700">
+                <div class="flex justify-between border-b border-pink-100/70 pb-2">
+                    <span class="text-gray-400">Десерт:</span>
+                    <span id="succSummaryItem" class="font-bold text-gray-900 text-right">—</span>
+                </div>
+                <div class="flex justify-between border-b border-pink-100/70 pb-2">
+                    <span class="text-gray-400">Отримувач:</span>
+                    <span id="succSummaryClient" class="font-bold text-gray-900 text-right">—</span>
+                </div>
+                <div class="flex justify-between border-b border-pink-100/70 pb-2">
+                    <span class="text-gray-400">Дата свята:</span>
+                    <span id="succSummaryDate" class="font-bold text-brand-dark text-right font-mono">—</span>
+                </div>
+                <div class="flex justify-between pt-1">
+                    <span class="text-gray-400">Сплачена сума:</span>
+                    <span id="succSummaryPaid" class="font-bold text-brand-rose text-right text-base">— грн</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-500 leading-relaxed">
+                Ми вже отримали ваше замовлення у чергу випічки та зв'яжемося за вказаним номером телефону для фінального узгодження.
+            </p>
+
+            <button onclick="closeSuccessModal()" class="w-full py-4 rounded-full bg-brand-rose hover:bg-brand-dark text-white font-bold text-base shadow-lg shadow-pink-400/30 transition-all cursor-pointer">
+                Чудово! Повернутися на сайт
+            </button>
+        </div>
+    </div>
+
+    <!-- Password Modal for Admin -->
+    <div id="passwordModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl p-7 max-w-xs w-full mx-auto shadow-2xl text-center space-y-4">
+            <div class="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center text-2xl mx-auto text-brand-rose">
+                🔒
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg">Вхід для власника</h3>
+            <p class="text-xs text-gray-500">Введіть пароль доступу до списку замовлень</p>
+            <input type="password" id="adminPwdInput" placeholder="Пароль (1234)" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-center font-bold outline-none focus:border-brand-rose text-sm">
+            <p id="pwdErrorLabel" class="text-xs text-red-500 hidden">Невірний пароль!</p>
+            <div class="flex gap-2">
+                <button onclick="closePasswordModal()" class="flex-1 py-2 bg-gray-100 text-gray-600 rounded-xl text-xs font-bold cursor-pointer">Скасувати</button>
+                <button onclick="verifyPassword()" class="flex-1 py-2 bg-brand-rose text-white rounded-xl text-xs font-bold cursor-pointer">Увійти</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-2 sm:p-5">
+        <div class="bg-white rounded-3xl w-full max-w-7xl h-[94vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-5 border-b border-gray-100 flex items-center justify-between bg-brand-light/60 shrink-0">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📋</span>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-gray-900">Замовлення Happy Kyiv Cake</h3>
+                        <p class="text-xs text-gray-500">Всі замовлення клієнтів із сайту (Дати у форматі ДД.ММ.РРРР)</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="fetchAdminOrders()" class="px-4 py-2 rounded-xl bg-white border border-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer">
+                        🔄 Оновити
+                    </button>
+                    <button onclick="closeAdminModal()" class="w-9 h-9 rounded-full bg-gray-100 text-gray-500 hover:text-gray-900 flex items-center justify-center cursor-pointer">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-4 flex-grow overflow-auto custom-scrollbar bg-gray-50/50">
+                <div id="adminEmptyState" class="hidden text-center py-20 text-gray-400">
+                    Замовлень ще немає. Зробіть перше замовлення на сайті!
+                </div>
+                <table id="adminTable" class="w-full text-left border-collapse min-w-[1050px] bg-white rounded-2xl overflow-hidden shadow-sm">
+                    <thead>
+                        <tr class="bg-pink-50/70 text-[11px] uppercase font-bold text-brand-dark tracking-wider border-b border-pink-100">
+                            <th class="p-3.5">Дата та час (ДД.ММ.РРРР)</th>
+                            <th class="p-3.5">Клієнт</th>
+                            <th class="p-3.5">Позиція та Смаки</th>
+                            <th class="p-3.5">Кількість</th>
+                            <th class="p-3.5">Сума / Оплата</th>
+                            <th class="p-3.5">Отримання</th>
+                            <th class="p-3.5">Фото декору</th>
+                            <th class="p-3.5">Коментар</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminOrdersTbody" class="divide-y divide-gray-100 text-xs text-gray-700">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Lightbox Modal for Decor Photos -->
+    <div id="imageLightboxModal" class="fixed inset-0 z-[999999] hidden items-center justify-center bg-black/95 backdrop-blur-md p-2 sm:p-6" onclick="closeLightboxOnBackdrop(event)">
+        <!-- Top Toolbar -->
+        <div class="absolute top-4 right-4 z-50 flex items-center gap-3">
+            <a id="lightboxDownloadBtn" href="#" download="decor-happy-kyiv-cake.jpg" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full text-xs font-bold backdrop-blur-md transition-all flex items-center gap-1.5 cursor-pointer">
+                <span>⬇</span> Завантажити фото
+            </a>
+            <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg font-bold backdrop-blur-md transition-all cursor-pointer">
+                ✕
+            </button>
+        </div>
+
+        <!-- Center Image Display -->
+        <div class="relative max-w-[95vw] max-h-[88vh] flex items-center justify-center" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" alt="Фото декору клієнта на весь екран" class="max-w-[95vw] max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-white/10 select-none">
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'happy-kyiv-cake-app';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "demo", projectId: "demo" };
+        
+        let app = null;
+        let auth = null;
+        let db = null;
+        let currentUser = null;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            
+            async function authenticate() {
+                try {
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        const cred = await signInWithCustomToken(auth, __initial_auth_token);
+                        currentUser = cred.user;
+                    } else {
+                        const cred = await signInAnonymously(auth);
+                        currentUser = cred.user;
+                    }
+                } catch (err) {
+                    console.warn("Auth initialization fallback to demo mode:", err);
+                }
+            }
+            authenticate();
+        } catch(e) {
+            console.warn("Firebase config fallback to local state mode:", e);
+        }
+
+        const getOrdersRef = () => db ? collection(db, 'artifacts', appId, 'public', 'data', 'orders') : null;
+
+        // In-memory fallback array to guarantee reliable preview testing
+        const fallbackOrdersStore = [];
+
+        const FLAVOR_COLLECTIONS = {
+            bento: [
+                'Шоколад-вишня', 'Чорниця-лайм', 'Фундук-шоколад', 'Бейліс', 
+                'Медівник класичний', 'Медівник груша-дорблю', 'Маківка вишнева', 
+                'Снікерс', 'Яскрава карамель', 'Чорний ліс', 'Червоний оксамит', 'Ягідний'
+            ],
+            macarons: [
+                'Манго-маракуйя', 'Дубайський шоколад', 'Груша-дорблю', 'Малина-пармезан',
+                'Фісташка-малина', 'Шоколад-фундук', 'Нутелла', 'Полуничний мілкшейк',
+                'Бабл гам', 'Раффаелло'
+            ],
+            cupcakes: [
+                'Ванільні з полуничним конфі', 'Шоколадні з карамеллю та арахісом', 'Вишня-шоколад'
+            ],
+            mousse: [
+                'Шоколад-вишня', 'Чорниця-лайм', 'Фундук-шоколад', 'Бейліс'
+            ],
+            freeCakes: [
+                'Наполеон', 'Медівник класичний', 'Фісташка-малина', 'Тропік', 'Фереро', 
+                'Чорний ліс', 'Маківка вишнева', 'Орео', 'Червоний оксамит', 'Снікерс', 
+                'Чорниця-лайм', 'Ягідний', 'Полуничний пломбір', 'Яскрава карамель'
+            ]
+        };
+
+        const CATEGORIES_PRESETS = [
+            { id: 'cake', title: 'Торт від 1.5 кг', price: 1200, unit: 'кг', min: 1.5, step: 0.5, flavorGroup: 'freeCakes' },
+            { id: 'bento', title: 'Бенто 0.5 кг', price: 800, unit: 'шт', min: 1, step: 1, flavorGroup: 'bento' },
+            { id: 'bento_maxi', title: 'Бенто Maxi 1 кг', price: 1300, unit: 'шт', min: 1, step: 1, flavorGroup: 'bento' },
+            { id: 'mousse', title: 'Мусовий торт', price: 1000, unit: 'шт', min: 1, step: 1, flavorGroup: 'mousse' },
+            { id: 'macarons', title: 'Макаронс (від 4 шт)', price: 85, unit: 'шт', min: 4, step: 1, flavorGroup: 'macarons' },
+            { id: 'macaron_cube', title: 'Торт КУБ', price: 1150, unit: 'шт', min: 1, step: 1, flavorGroup: 'macarons' },
+            { id: 'potato', title: 'Тістечка Картопля (6 шт)', price: 300, unit: 'шт', min: 1, step: 1, flavorGroup: null },
+            { id: 'trifles', title: 'Трайфли (від 4 шт)', price: 200, unit: 'шт', min: 4, step: 1, flavorGroup: 'bento' },
+            { id: 'cupcakes', title: 'Капкейки (від 4 шт)', price: 150, unit: 'шт', min: 4, step: 1, flavorGroup: 'cupcakes' }
+        ];
+
+        let state = {
+            orderMode: 'specific',
+            selectedItemName: '',
+            basePrice: 1200,
+            unit: 'кг',
+            minQty: 1.5,
+            stepQty: 0.5,
+            qty: 1.5,
+            paymentType: '50',
+            deliveryMethod: 'pickup',
+            selectedFlavors: new Set(),
+            decorPhotoBase64: '',
+            lastSubmittedOrder: null
+        };
+
+        window.adminOrdersStore = {};
+
+        // Strictly format YYYY-MM-DD or other formats into DD.MM.YYYY
+        window.formatToDDMMYYYY = function(rawDateStr) {
+            if (!rawDateStr) return '';
+            if (/^\d{2}\.\d{2}\.\d{4}$/.test(rawDateStr)) return rawDateStr;
+            const parts = rawDateStr.split('-');
+            if (parts.length === 3) {
+                const year = parts[0];
+                const month = parts[1];
+                const day = parts[2];
+                return `${day.padStart(2, '0')}.${month.padStart(2, '0')}.${year}`;
+            }
+            return rawDateStr;
+        };
+
+        window.handleDateInputChange = function(inputEl) {
+            const rawVal = inputEl.value;
+            const previewEl = document.getElementById('dateDisplayFormatted');
+            if (rawVal) {
+                const formatted = window.formatToDDMMYYYY(rawVal);
+                previewEl.innerHTML = `Обрана дата: <span class="bg-pink-100 text-brand-dark px-2 py-0.5 rounded font-mono font-bold">${formatted}</span>`;
+                document.getElementById('dateErr').classList.add('hidden');
+                inputEl.classList.remove('input-error');
+            } else {
+                previewEl.innerText = 'Оберіть дату в календарі';
+            }
+        };
+
+        const orderModal = document.getElementById('orderModal');
+        const modalHeading = document.getElementById('modalHeading');
+        const dispPrice = document.getElementById('dispPrice');
+        const dispUnit = document.getElementById('dispUnit');
+        const categoryPickerBlock = document.getElementById('categoryPickerBlock');
+        const categoryPills = document.getElementById('categoryPills');
+        const specificCakeBadge = document.getElementById('specificCakeBadge');
+        const specificCakeName = document.getElementById('specificCakeName');
+        const flavorsPickerBlock = document.getElementById('flavorsPickerBlock');
+        const flavorsPillsContainer = document.getElementById('flavorsPillsContainer');
+        const flavorNoticeCount = document.getElementById('flavorNoticeCount');
+        const flavorErrorText = document.getElementById('flavorErrorText');
+        const qtyInput = document.getElementById('qtyInput');
+        const currentUnitText = document.getElementById('currentUnitText');
+        const minNoticeText = document.getElementById('minNoticeText');
+        const sumTotal = document.getElementById('sumTotal');
+        const sumToPay = document.getElementById('sumToPay');
+        const pay50Btn = document.getElementById('pay50Btn');
+        const pay100Btn = document.getElementById('pay100Btn');
+
+        window.handleHeroOrderClick = function() {
+            state.orderMode = 'free';
+            state.selectedFlavors.clear();
+            resetDecorSelection();
+            clearValidationErrors();
+
+            modalHeading.innerText = 'Вільне замовлення';
+            specificCakeBadge.classList.add('hidden');
+            categoryPickerBlock.classList.remove('hidden');
+
+            categoryPills.innerHTML = '';
+            CATEGORIES_PRESETS.forEach((cat, index) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `pill-btn px-3 py-1.5 rounded-full text-xs font-semibold border ${index === 0 ? 'active' : 'bg-white text-gray-700 border-gray-200'}`;
+                btn.innerText = cat.title;
+                btn.onclick = () => selectCategoryInFreeMode(cat);
+                categoryPills.appendChild(btn);
+            });
+
+            selectCategoryInFreeMode(CATEGORIES_PRESETS[0]);
+            showModal();
+        };
+
+        function selectCategoryInFreeMode(cat) {
+            Array.from(categoryPills.children).forEach(b => {
+                b.classList.remove('active');
+                b.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
+                if (b.innerText === cat.title) {
+                    b.classList.add('active');
+                    b.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
+                }
+            });
+
+            state.selectedItemName = cat.title;
+            state.basePrice = cat.price;
+            state.unit = cat.unit;
+            state.minQty = cat.min;
+            state.stepQty = cat.step;
+            state.qty = cat.min;
+
+            dispPrice.innerText = cat.price;
+            dispUnit.innerText = cat.unit;
+            currentUnitText.innerText = cat.unit;
+            minNoticeText.innerText = `Мін: ${cat.min} ${cat.unit}`;
+            qtyInput.min = cat.min;
+            qtyInput.step = cat.step;
+            qtyInput.value = cat.min;
+
+            state.selectedFlavors.clear();
+            if (cat.flavorGroup && FLAVOR_COLLECTIONS[cat.flavorGroup]) {
+                flavorsPickerBlock.classList.remove('hidden');
+                renderFlavorsPills(FLAVOR_COLLECTIONS[cat.flavorGroup]);
+            } else {
+                flavorsPickerBlock.classList.add('hidden');
+            }
+
+            recalculatePricing();
+        }
+
+        window.openSpecificCakeModal = function(cakeName, price, min = 1.5, step = 0.5, unit = 'кг') {
+            state.orderMode = 'specific';
+            state.selectedItemName = cakeName;
+            state.basePrice = price;
+            state.unit = unit;
+            state.minQty = min;
+            state.stepQty = step;
+            state.qty = min;
+            state.selectedFlavors.clear();
+            resetDecorSelection();
+            clearValidationErrors();
+
+            modalHeading.innerText = 'Замовлення десерту';
+            categoryPickerBlock.classList.add('hidden');
+            flavorsPickerBlock.classList.add('hidden');
+
+            specificCakeBadge.classList.remove('hidden');
+            specificCakeName.innerText = cakeName;
+
+            dispPrice.innerText = price;
+            dispUnit.innerText = unit;
+            currentUnitText.innerText = unit;
+            minNoticeText.innerText = `Мін: ${min} ${unit}`;
+
+            qtyInput.min = min;
+            qtyInput.step = step;
+            qtyInput.value = min;
+
+            recalculatePricing();
+            showModal();
+        };
+
+        window.openCustomOrderModal = function(itemName, price, unit, min, step, flavorGroupKey) {
+            state.orderMode = 'custom';
+            state.selectedItemName = itemName;
+            state.basePrice = price;
+            state.unit = unit;
+            state.minQty = min;
+            state.stepQty = step;
+            state.qty = min;
+            state.selectedFlavors.clear();
+            resetDecorSelection();
+            clearValidationErrors();
+
+            modalHeading.innerText = 'Замовлення десерту';
+            categoryPickerBlock.classList.add('hidden');
+
+            specificCakeBadge.classList.remove('hidden');
+            specificCakeName.innerText = itemName;
+
+            dispPrice.innerText = price;
+            dispUnit.innerText = unit;
+            currentUnitText.innerText = unit;
+            minNoticeText.innerText = `Мін: ${min} ${unit}`;
+
+            qtyInput.min = min;
+            qtyInput.step = step;
+            qtyInput.value = min;
+
+            if (flavorGroupKey && FLAVOR_COLLECTIONS[flavorGroupKey]) {
+                flavorsPickerBlock.classList.remove('hidden');
+                renderFlavorsPills(FLAVOR_COLLECTIONS[flavorGroupKey]);
+            } else {
+                flavorsPickerBlock.classList.add('hidden');
+            }
+
+            recalculatePricing();
+            showModal();
+        };
+
+        function renderFlavorsPills(flavorsList) {
+            flavorsPillsContainer.innerHTML = '';
+            flavorNoticeCount.innerText = 'Обрано: 0';
+            flavorErrorText.classList.add('hidden');
+            flavorsPillsContainer.classList.remove('border-red-400');
+
+            flavorsList.forEach(flavor => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'pill-btn px-3 py-1.5 rounded-full text-xs font-medium border border-gray-200 bg-white text-gray-700 hover:border-pink-300 cursor-pointer';
+                btn.innerText = flavor;
+                btn.onclick = () => {
+                    if (state.selectedFlavors.has(flavor)) {
+                        state.selectedFlavors.delete(flavor);
+                        btn.classList.remove('active');
+                        btn.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
+                    } else {
+                        state.selectedFlavors.add(flavor);
+                        btn.classList.add('active');
+                        btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
+                    }
+                    flavorNoticeCount.innerText = `Обрано: ${state.selectedFlavors.size}`;
+                    if (state.selectedFlavors.size > 0) {
+                        flavorErrorText.classList.add('hidden');
+                        flavorsPillsContainer.classList.remove('border-red-400');
+                    }
+                };
+                flavorsPillsContainer.appendChild(btn);
+            });
+        }
+
+        function showModal() {
+            orderModal.classList.remove('hidden');
+            orderModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.closeOrderModal = function() {
+            orderModal.classList.add('hidden');
+            orderModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+
+        window.adjustQuantity = function(direction) {
+            let current = parseFloat(qtyInput.value) || state.minQty;
+            current += (direction * state.stepQty);
+            if (current < state.minQty) current = state.minQty;
+            
+            qtyInput.value = state.unit === 'кг' ? current.toFixed(1) : Math.round(current);
+            state.qty = parseFloat(qtyInput.value);
+            recalculatePricing();
+        };
+
+        qtyInput.addEventListener('input', () => {
+            let val = parseFloat(qtyInput.value);
+            if (isNaN(val) || val < state.minQty) val = state.minQty;
+            state.qty = val;
+            recalculatePricing();
+        });
+
+        window.selectPaymentType = function(type) {
+            state.paymentType = type;
+            if (type === '50') {
+                pay50Btn.className = 'py-1 text-xs font-bold rounded-md bg-brand-rose text-white shadow-sm transition-all cursor-pointer';
+                pay100Btn.className = 'py-1 text-xs font-bold rounded-md text-gray-600 hover:text-gray-900 transition-all cursor-pointer';
+            } else {
+                pay100Btn.className = 'py-1 text-xs font-bold rounded-md bg-brand-rose text-white shadow-sm transition-all cursor-pointer';
+                pay50Btn.className = 'py-1 text-xs font-bold rounded-md text-gray-600 hover:text-gray-900 transition-all cursor-pointer';
+            }
+            recalculatePricing();
+        };
+
+        function recalculatePricing() {
+            const total = Math.round(state.basePrice * state.qty);
+            const toPay = state.paymentType === '50' ? Math.round(total * 0.5) : total;
+
+            sumTotal.innerText = total.toLocaleString('uk-UA');
+            sumToPay.innerText = toPay.toLocaleString('uk-UA');
+        }
+
+        window.setDeliveryMethod = function(method) {
+            state.deliveryMethod = method;
+            const pickupBtn = document.getElementById('pickupOptBtn');
+            const deliveryBtn = document.getElementById('deliveryOptBtn');
+            const pickupNotice = document.getElementById('pickupNotice');
+            const deliveryWrapper = document.getElementById('deliveryInputWrapper');
+
+            if (method === 'pickup') {
+                pickupBtn.className = 'py-2.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-sm transition-all cursor-pointer';
+                deliveryBtn.className = 'py-2.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer';
+                pickupNotice.classList.remove('hidden');
+                deliveryWrapper.classList.add('hidden');
+                document.getElementById('addressErr').classList.add('hidden');
+                document.getElementById('deliveryAddressInput').classList.remove('input-error');
+            } else {
+                deliveryBtn.className = 'py-2.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-sm transition-all cursor-pointer';
+                pickupBtn.className = 'py-2.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer';
+                pickupNotice.classList.add('hidden');
+                deliveryWrapper.classList.remove('hidden');
+            }
+        };
+
+        function compressImage(file, maxDimension = 800, quality = 0.8) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > height) {
+                            if (width > maxDimension) {
+                                height = Math.round((height * maxDimension) / width);
+                                width = maxDimension;
+                            }
+                        } else {
+                            if (height > maxDimension) {
+                                width = Math.round((width * maxDimension) / height);
+                                height = maxDimension;
+                            }
+                        }
+                        const canvas = document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        const compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+                        resolve(compressedBase64);
+                    };
+                    img.onerror = (err) => reject(err);
+                };
+                reader.onerror = (err) => reject(err);
+            });
+        }
+
+        window.handleDecorPhotoSelect = async function(input) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                document.getElementById('decorFileName').innerText = file.name;
+                
+                try {
+                    const compressed = await compressImage(file, 800, 0.8);
+                    state.decorPhotoBase64 = compressed;
+                    
+                    document.getElementById('decorPreviewImg').src = compressed;
+                    document.getElementById('decorPhotoPreviewBox').classList.remove('hidden');
+                    document.getElementById('decorStandardCheckbox').checked = false;
+                    document.getElementById('decorErr').classList.add('hidden');
+                } catch (e) {
+                    console.error("Compression failed:", e);
+                }
+            }
+        };
+
+        window.removeSelectedPhoto = function() {
+            state.decorPhotoBase64 = '';
+            document.getElementById('decorPhotoFile').value = '';
+            document.getElementById('decorFileName').innerText = 'Файл не обрано';
+            document.getElementById('decorPhotoPreviewBox').classList.add('hidden');
+        };
+
+        window.handleStandardDecorToggle = function(checkbox) {
+            if (checkbox.checked) {
+                removeSelectedPhoto();
+                document.getElementById('decorErr').classList.add('hidden');
+            }
+        };
+
+        function resetDecorSelection() {
+            removeSelectedPhoto();
+            document.getElementById('decorStandardCheckbox').checked = false;
+        }
+
+        function clearValidationErrors() {
+            const inputs = ['custName', 'custSurname', 'custPhone', 'deliveryAddressInput', 'orderDateInput', 'orderTimeInput'];
+            inputs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('input-error');
+            });
+            const errs = ['nameErr', 'surnameErr', 'phoneErr', 'addressErr', 'dateErr', 'timeErr', 'decorErr', 'flavorErrorText'];
+            errs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+        }
+
+        window.submitOrderForm = async function() {
+            clearValidationErrors();
+            let hasError = false;
+
+            // 1. Name
+            const nameEl = document.getElementById('custName');
+            const nameVal = nameEl.value.trim();
+            if (!nameVal) {
+                nameEl.classList.add('input-error');
+                document.getElementById('nameErr').classList.remove('hidden');
+                hasError = true;
+            }
+
+            // 2. Surname
+            const surnameEl = document.getElementById('custSurname');
+            const surnameVal = surnameEl.value.trim();
+            if (!surnameVal) {
+                surnameEl.classList.add('input-error');
+                document.getElementById('surnameErr').classList.remove('hidden');
+                hasError = true;
+            }
+
+            // 3. Phone
+            const phoneEl = document.getElementById('custPhone');
+            const phoneVal = phoneEl.value.trim();
+            if (!phoneVal) {
+                phoneEl.classList.add('input-error');
+                document.getElementById('phoneErr').classList.remove('hidden');
+                hasError = true;
+            }
+
+            // 4. Delivery address
+            let deliveryAddressVal = 'Самовивіз (вул. Урлівська 34А / Анни Ахматової 35А)';
+            if (state.deliveryMethod === 'delivery') {
+                const addrEl = document.getElementById('deliveryAddressInput');
+                deliveryAddressVal = addrEl.value.trim();
+                if (!deliveryAddressVal) {
+                    addrEl.classList.add('input-error');
+                    document.getElementById('addressErr').classList.remove('hidden');
+                    hasError = true;
+                }
+            }
+
+            // 5. Date & Time
+            const dateEl = document.getElementById('orderDateInput');
+            const rawDateVal = dateEl.value;
+            if (!rawDateVal) {
+                dateEl.classList.add('input-error');
+                document.getElementById('dateErr').classList.remove('hidden');
+                hasError = true;
+            }
+            const formattedDateVal = window.formatToDDMMYYYY(rawDateVal);
+
+            const timeEl = document.getElementById('orderTimeInput');
+            const timeVal = timeEl.value;
+            if (!timeVal) {
+                timeEl.classList.add('input-error');
+                document.getElementById('timeErr').classList.remove('hidden');
+                hasError = true;
+            }
+
+            // 6. Flavors
+            const isFlavorPickerVisible = !flavorsPickerBlock.classList.contains('hidden');
+            if (isFlavorPickerVisible && state.selectedFlavors.size === 0) {
+                flavorsPillsContainer.classList.add('border-red-400');
+                flavorErrorText.classList.remove('hidden');
+                hasError = true;
+            }
+
+            // 7. Decor Choice
+            const isStandardDecor = document.getElementById('decorStandardCheckbox').checked;
+            if (!state.decorPhotoBase64 && !isStandardDecor) {
+                document.getElementById('decorErr').classList.remove('hidden');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            const submitBtn = document.getElementById('confirmOrderSubmitBtn');
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerText = 'Збереження замовлення...';
+            submitBtn.disabled = true;
+
+            const total = Math.round(state.basePrice * state.qty);
+            const toPay = state.paymentType === '50' ? Math.round(total * 0.5) : total;
+
+            const orderPayload = {
+                id: 'ord-' + Date.now(),
+                clientName: nameVal,
+                clientSurname: surnameVal,
+                clientPhone: phoneVal,
+                itemTitle: state.selectedItemName,
+                flavors: Array.from(state.selectedFlavors),
+                quantity: state.qty,
+                unit: state.unit,
+                totalAmount: total,
+                amountDue: toPay,
+                prepaymentType: state.paymentType === '50' ? '50% (передплата)' : '100% (повна)',
+                deliveryType: state.deliveryMethod === 'delivery' ? 'Кур\'єр' : 'Самовивіз',
+                deliveryDetails: deliveryAddressVal,
+                targetDate: formattedDateVal, // Strictly saved as DD.MM.YYYY
+                targetTime: timeVal,
+                comment: document.getElementById('orderCommentInput').value.trim() || 'Без додаткових коментарів',
+                decorType: state.decorPhotoBase64 ? 'photo' : 'standard',
+                decorPhotoData: state.decorPhotoBase64 || '',
+                createdAtDate: new Date().toLocaleString('uk-UA')
+            };
+
+            state.lastSubmittedOrder = orderPayload;
+            fallbackOrdersStore.unshift(orderPayload);
+
+            try {
+                const ref = getOrdersRef();
+                if (currentUser && ref) {
+                    await addDoc(ref, {
+                        ...orderPayload,
+                        createdAt: serverTimestamp()
+                    });
+                }
+            } catch (error) {
+                console.warn("Storage fallback to memory store:", error);
+            } finally {
+                document.getElementById('payAmountDisplay').innerText = toPay.toLocaleString('uk-UA');
+                closeOrderModal();
+                openPaymentModal();
+                submitBtn.innerHTML = originalBtnContent;
+                submitBtn.disabled = false;
+            }
+        };
+
+        window.openPaymentModal = function() {
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closePaymentModal = function() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+
+        window.handleExecutePayment = function() {
+            closePaymentModal();
+            openSuccessModal();
+        };
+
+        window.openSuccessModal = function() {
+            const ord = state.lastSubmittedOrder || {};
+            document.getElementById('succSummaryItem').innerText = ord.itemTitle ? `${ord.itemTitle} (${ord.quantity} ${ord.unit})` : 'Десерт';
+            document.getElementById('succSummaryClient').innerText = ord.clientName ? `${ord.clientName} ${ord.clientSurname || ''}` : 'Клієнт';
+            document.getElementById('succSummaryDate').innerText = ord.targetDate ? `${window.formatToDDMMYYYY(ord.targetDate)} о ${ord.targetTime || ''}` : 'Вказана дата';
+            document.getElementById('succSummaryPaid').innerText = ord.amountDue ? `${ord.amountDue.toLocaleString('uk-UA')} грн` : '0 грн';
+
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeSuccessModal = function() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+
+        window.openPasswordModal = function() {
+            document.getElementById('adminPwdInput').value = '';
+            document.getElementById('pwdErrorLabel').classList.add('hidden');
+            document.getElementById('passwordModal').classList.remove('hidden');
+            document.getElementById('passwordModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closePasswordModal = function() {
+            document.getElementById('passwordModal').classList.add('hidden');
+            document.getElementById('passwordModal').classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+
+        window.verifyPassword = function() {
+            const val = document.getElementById('adminPwdInput').value;
+            if (val === '1234') {
+                closePasswordModal();
+                openAdminModal();
+            } else {
+                document.getElementById('pwdErrorLabel').classList.remove('hidden');
+            }
+        };
+
+        window.openAdminModal = function() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            document.getElementById('adminModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            fetchAdminOrders();
+        };
+
+        window.closeAdminModal = function() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+
+        window.fetchAdminOrders = async function() {
+            const tbody = document.getElementById('adminOrdersTbody');
+            const emptyState = document.getElementById('adminEmptyState');
+            tbody.innerHTML = '<tr><td colspan="8" class="p-8 text-center text-gray-400">Завантаження замовлень...</td></tr>';
+            emptyState.classList.add('hidden');
+
+            const orders = [];
+            window.adminOrdersStore = {};
+
+            try {
+                const ref = getOrdersRef();
+                if (currentUser && ref) {
+                    const snap = await getDocs(ref);
+                    snap.forEach(doc => {
+                        const data = doc.data();
+                        const orderItem = { id: doc.id, ...data };
+                        orders.push(orderItem);
+                    });
+                }
+            } catch (err) {
+                console.warn("Using local session orders:", err);
+            }
+
+            // Merge local and remote
+            fallbackOrdersStore.forEach(localOrd => {
+                if (!orders.some(o => o.id === localOrd.id)) {
+                    orders.push(localOrd);
+                }
+            });
+
+            orders.forEach(ord => {
+                window.adminOrdersStore[ord.id] = ord;
+            });
+
+            if (orders.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            tbody.innerHTML = '';
+            orders.forEach(ord => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-pink-50/40 transition-colors border-b border-gray-100';
+
+                const flavorsList = ord.flavors && ord.flavors.length > 0 
+                    ? `<div class="text-[11px] text-brand-rose font-medium mt-0.5">${ord.flavors.join(', ')}</div>` 
+                    : '';
+
+                let photoCellHtml = '<span class="text-xs text-gray-400">Каталожний / Стандарт</span>';
+                if (ord.decorPhotoData) {
+                    photoCellHtml = `
+                        <div class="flex items-center gap-2">
+                            <img src="${ord.decorPhotoData}" 
+                                 alt="Прев'ю декору" 
+                                 class="w-12 h-12 object-cover rounded-xl cursor-pointer border border-pink-200 hover:scale-105 transition-transform shadow-sm" 
+                                 onclick="openFullscreenLightbox('${ord.id}')">
+                            <button type="button" 
+                                    onclick="openFullscreenLightbox('${ord.id}')" 
+                                    class="px-2.5 py-1 bg-brand-rose text-white text-[11px] font-bold rounded-lg hover:bg-brand-dark transition-all flex items-center gap-1 shadow-sm cursor-pointer">
+                                <span>🔍</span> На весь екран
+                            </button>
+                        </div>
+                    `;
+                }
+
+                // Strict DD.MM.YYYY representation in admin table
+                const displayFormattedDate = window.formatToDDMMYYYY(ord.targetDate);
+
+                tr.innerHTML = `
+                    <td class="p-3.5">
+                        <span class="font-bold text-gray-900 font-mono text-sm">${displayFormattedDate || '—'}</span>
+                        <div class="text-[11px] text-gray-400 font-medium">${ord.targetTime || ''}</div>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-gray-900">${ord.clientName} ${ord.clientSurname || ''}</div>
+                        <a href="tel:${ord.clientPhone}" class="text-[11px] text-brand-rose font-medium hover:underline block">${ord.clientPhone}</a>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-gray-900">${ord.itemTitle}</div>
+                        ${flavorsList}
+                    </td>
+                    <td class="p-3.5">
+                        <span class="px-2.5 py-1 bg-gray-100 text-gray-800 font-bold rounded-lg text-xs">
+                            ${ord.quantity} ${ord.unit}
+                        </span>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-brand-rose">${ord.amountDue || 0} грн</div>
+                        <div class="text-[10px] text-gray-400">${ord.prepaymentType || '50%'} (з ${ord.totalAmount || 0} грн)</div>
+                    </td>
+                    <td class="p-3.5">
+                        <span class="font-bold text-xs ${ord.deliveryType === 'Кур\'єр' ? 'text-blue-600' : 'text-emerald-600'}">
+                            ${ord.deliveryType}
+                        </span>
+                        <div class="text-[11px] text-gray-500 max-w-[180px] truncate" title="${ord.deliveryDetails}">
+                            ${ord.deliveryDetails}
+                        </div>
+                    </td>
+                    <td class="p-3.5">
+                        ${photoCellHtml}
+                    </td>
+                    <td class="p-3.5 max-w-[200px]">
+                        <div class="text-xs text-gray-600 break-words">${ord.comment || '—'}</div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        window.openFullscreenLightbox = function(orderId) {
+            const order = window.adminOrdersStore[orderId];
+            if (!order || !order.decorPhotoData) return;
+
+            const modal = document.getElementById('imageLightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const downloadBtn = document.getElementById('lightboxDownloadBtn');
+
+            img.src = order.decorPhotoData;
+            downloadBtn.href = order.decorPhotoData;
+            downloadBtn.download = `decor-${order.clientName || 'order'}-${order.id}.jpg`;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeLightbox = function() {
+            const modal = document.getElementById('imageLightboxModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('lightboxImg').src = '';
+            document.body.style.overflow = '';
+        };
+
+        window.closeLightboxOnBackdrop = function(event) {
+            if (event.target.id === 'imageLightboxModal') {
+                closeLightbox();
+            }
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeOrderModal();
+                closePaymentModal();
+                closeSuccessModal();
+                closePasswordModal();
+            }
+        });
+
+        // Надійна обробка якірних посилань (меню) для обходу обмежень iframe
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
